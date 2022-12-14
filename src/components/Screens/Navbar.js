@@ -1,20 +1,30 @@
 import React, { useState } from 'react'
-import { useNavigate, Outlet } from 'react-router-dom'
+import { useNavigate, Outlet, useLocation } from 'react-router-dom'
 
 const Navbar = () => {
   const navigate = useNavigate()
+  const location = useLocation()
 
   return (
     <>
       <div className="flex flex-col h-screen bg-[#0F103F]">
         <div className="flex h-16 pt-10 justify-center items-center space-x-16 text-white uppercase">
-          <div className="w-14 hover:font-semibold hover:cursor-pointer">
+          <div
+            className="w-14 hover:font-semibold hover:cursor-pointer"
+            onClick={() => navigate('/')}
+          >
             home
           </div>
-          <div className="w-24 hover:font-semibold hover:cursor-pointer">
+          <div
+            className="w-24 hover:font-semibold hover:cursor-pointer"
+            onClick={() => navigate('aboutme')}
+          >
             about me
           </div>
-          <div className="hover:stroke-[#0F103F] hover:cursor-pointer">
+          <div
+            className="hover:stroke-[#0F103F] hover:cursor-pointer"
+            onClick={() => navigate('/')}
+          >
             <svg
               width="46"
               height="46"
@@ -62,10 +72,16 @@ const Navbar = () => {
               </defs>
             </svg>
           </div>
-          <div className="w-14 hover:font-semibold hover:cursor-pointer">
+          <div
+            className="w-14 hover:font-semibold hover:cursor-pointer"
+            onClick={() => navigate('work')}
+          >
             work
           </div>
-          <div className="w-14 hover:font-semibold hover:cursor-pointer">
+          <div
+            className="w-14 hover:font-semibold hover:cursor-pointer"
+            onClick={() => navigate('contact')}
+          >
             contact
           </div>
         </div>
