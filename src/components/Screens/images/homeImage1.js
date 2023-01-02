@@ -4,7 +4,7 @@ const HomeImage = () => {
   return (
     <div>
       <svg
-        className="pl-16 h-[30rem] max-w-fit"
+        className="md:pl-16 md:h-[30rem] h-64 max-w-fit"
         width="470"
         height="691"
         viewBox="0 0 470 691"
@@ -668,7 +668,7 @@ const HomeImage = () => {
         </defs>
       </svg>
       <svg
-        className=" absolute -top-4 -left-16 opacity-40 animate-pulse h-[26rem] max-w-fit"
+        className="hidden md:block absolute -top-4 -left-16 opacity-40 animate-pulse h-[26rem] max-w-fit"
         width="410"
         height="410"
         viewBox="0 0 410 410"
@@ -697,7 +697,7 @@ const HomeImage = () => {
         </defs>
       </svg>
       <svg
-        className="absolute top-52 left-16 animate-pulse h-[25rem] w-[21rem]"
+        className="absolute top-6 md:top-52 md:left-16 animate-pulse h-[25rem] md:w-[21rem] w-[11rem]"
         width="493"
         height="515"
         viewBox="0 0 493 515"
@@ -805,7 +805,7 @@ const HomeImage = () => {
           </linearGradient>
         </defs>
       </svg>
-      <div
+      <div className='hidden md:block'
         style={{
           top: '18rem',
           left: '-2rem',

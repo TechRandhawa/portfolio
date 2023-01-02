@@ -4,7 +4,7 @@ const homeImage2 = () => {
   return (
     <>
       <svg
-        className="h-[26rem] w-fit"
+        className="md:h-[26rem] h-fit w-fit"
         width="1116"
         height="809"
         viewBox="0 0 1116 809"
