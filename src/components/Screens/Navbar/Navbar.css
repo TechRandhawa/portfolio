@@ -1,0 +1,30 @@
+
+@keyframes cross {
+  from {
+    rotate: 0deg;
+  }
+  25% {
+    rotate: 90deg;
+  }
+  50% {
+    rotate: 180deg;
+  }
+  75% {
+    rotate: 360deg;
+  }
+  to {
+    rotate: 0deg;
+  }
+}
+
+@keyframes open {
+  from {
+    right: -180px;
+  }
+  50% {
+    right: -90px;
+  } /* ignored */
+  to {
+    right: 0px;
+  }
+}
