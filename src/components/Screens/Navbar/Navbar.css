@@ -28,15 +28,3 @@
     right: 0px;
   }
 }
-
-@keyframes close {
-  from {
-    right: 0px;
-  }
-  50% {
-    right: -100px;
-  } /* ignored */
-  to {
-    right: -200px;
-  }
-}

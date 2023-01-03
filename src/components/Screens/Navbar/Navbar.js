@@ -9,26 +9,32 @@ const Navbar = () => {
   const [open, setOpen] = useState(false)
   // console.log(location);
 
+  const goTo = (e) => {
+    navigate(e)
+    console.log("here",e);
+    setOpen(false)
+  }
+
   return (
     <>
       <div className="flex z-30 flex-col min-h-screen md:h-screen bg-[#0F103F]">
         <div className="overflow-hidden">
           <div className="md:flex hidden border-b-2 pb-4 pt-10 justify-center items-center space-x-16 text-white uppercase pr-12">
             <div
+              onClick={() => goTo("/")}
               className="w-14 hover:font-semibold hover:cursor-pointer"
-              onClick={() => navigate('/')}
             >
               home
             </div>
             <div
               className="w-24 hover:font-semibold hover:cursor-pointer"
-              onClick={() => navigate('aboutme')}
+              onClick={() => goTo("aboutme")}
             >
               about me
             </div>
             <div
               className="hover:stroke-[#0F103F] hover:cursor-pointer"
-              onClick={() => navigate('/')}
+              onClick={() => goTo("/")}
             >
               <svg
                 width="46"
@@ -52,7 +58,6 @@ const Navbar = () => {
                 />
                 <defs>
                   <linearGradient
-                    id="paint0_linear_1_1589"
                     x1="8.91251"
                     y1="3.7375"
                     x2="37.0875"
@@ -63,7 +68,6 @@ const Navbar = () => {
                     <stop offset="1" stop-color="#626BFE" />
                   </linearGradient>
                   <linearGradient
-                    id="paint1_linear_1_1589"
                     x1="28.75"
                     y1="1.4375"
                     x2="31.05"
@@ -79,13 +83,13 @@ const Navbar = () => {
             </div>
             <div
               className="w-14 hover:font-semibold hover:cursor-pointer"
-              onClick={() => navigate('work')}
+              onClick={() => goTo("work")}
             >
               work
             </div>
             <div
               className="w-14 hover:font-semibold hover:cursor-pointer"
-              onClick={() => navigate('contact')}
+              onClick={() => goTo("contact")}
             >
               contact
             </div>
@@ -93,7 +97,7 @@ const Navbar = () => {
           <div className="flex md:hidden text-white border-b-2 rounded-b-2xl uppercase justify-between">
             <div
               className="flex hover:stroke-[#0F103F] hover:cursor-pointer p-3"
-              onClick={() => navigate('/')}
+              onClick={() => goTo()}
             >
               <img src={logo} alt="Logo" className="rounded-full w-14 h-14" />
             </div>
@@ -116,12 +120,12 @@ const Navbar = () => {
               </div>
             </div>
 
-            <div className='w-screen flex justify-end h-screen overflow-hidden bg-transparent absolute top-0 left-0'>
+            <div className="w-screen flex justify-end h-screen overflow-hidden bg-transparent absolute top-0 left-0">
               <div
                 className={` relative w-44 z-30 h-screen ${
                   open
                     ? 'animate-[open_3s_linear_1] right-0'
-                    : 'animate-[close_5s_linear_1] -right-48'
+                    : 'delay-700 translate-x-0 duration-1000 ease-in-out -right-48'
                 } bg-[#0F103F] border-l-2 space-y-10 p-10`}
               >
                 <div
@@ -145,26 +149,26 @@ const Navbar = () => {
                 </div>
                 <div
                   className="hover:font-semibold hover:cursor-pointer border-b-2"
-                  onClick={() => navigate('/')}
+                  onClick={() => goTo("/")}
                 >
                   home
                 </div>
                 <div
                   className="hover:font-semibold hover:cursor-pointer border-b-2"
-                  onClick={() => navigate('aboutme')}
+                  onClick={() => goTo("aboutme")}
                 >
                   about me
                 </div>
 
                 <div
                   className="hover:font-semibold hover:cursor-pointer border-b-2"
-                  onClick={() => navigate('work')}
+                  onClick={() => goTo("work")}
                 >
                   work
                 </div>
                 <div
                   className="hover:font-semibold hover:cursor-pointer border-b-2"
-                  onClick={() => navigate('contact')}
+                  onClick={() => goTo("contact")}
                 >
                   contact
                 </div>
