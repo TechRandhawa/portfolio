@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { useNavigate, Outlet, useLocation } from 'react-router-dom'
-import logo from '../images/logo.png'
 import './Navbar.css'
+import { storage } from '../../Firebase/firebase-config'
+import { ref, listAll, getDownloadURL } from 'firebase/storage'
 
 const Navbar = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const [open, setOpen] = useState(false)
+  const [getImage, setGetImage] = useState()
+  const imageListRef = ref(storage, 'my-cv-pics/')
   // console.log(location);
 
   const goTo = (e) => {
@@ -14,6 +17,19 @@ const Navbar = () => {
     console.log("here",e);
     setOpen(false)
   }
+
+  useEffect(() => {
+    
+    listAll(imageListRef).then((res)=>{
+      res.items.forEach((item)=>{
+        getDownloadURL(item).then((url)=>{
+          setGetImage(url)
+          // console.log(url);
+        })
+      })
+    })
+  }, [])
+  
 
   return (
     <>
@@ -36,7 +52,7 @@ const Navbar = () => {
               className="hover:stroke-[#0F103F] hover:cursor-pointer"
               onClick={() => goTo("/")}
             >
-              <img src={logo} alt="Logo" className="rounded-full w-12 h-12" />
+              <img src={getImage} alt="Logo" className="rounded-full w-12 h-12" />
             </div>
             <div
               className="w-14 hover:font-semibold hover:cursor-pointer"
@@ -57,7 +73,7 @@ const Navbar = () => {
               className="flex hover:stroke-[#0F103F] hover:cursor-pointer p-3"
               onClick={() => goTo("/")}
             >
-              <img src={logo} alt="Logo" className="rounded-full w-14 h-14" />
+              <img src={getImage} alt="Logo" className="rounded-full w-14 h-14" />
             </div>
             <div className="flex min-h-full z-10 pr-3 items-center hover:cursor-pointer">
               <div onClick={() => setOpen(true)}>
@@ -82,12 +98,12 @@ const Navbar = () => {
               <div
                 className={` relative w-44 z-30 h-screen ${
                   open
-                    ? 'animate-[open_3s_linear_1] right-0'
+                    ? 'animate-[open_2s_linear_1] right-0'
                     : 'delay-700 translate-x-0 duration-1000 ease-in-out -right-48'
                 } bg-[#0F103F] border-l-2 space-y-10 p-10`}
               >
                 <div
-                  className="absolute right-2 top-2 active:animate-[cross_3s_linear_infinite] hover:cursor-pointer"
+                  className={` absolute right-2 top-2 ${!open && "animate-[cross_3s_linear_infinite_alternate-reverse]"} active:animate-[cross_3s_linear_infinite_alternate-reverse] hover:cursor-pointer `}
                   onClick={() => setOpen(false)}
                 >
                   <svg
