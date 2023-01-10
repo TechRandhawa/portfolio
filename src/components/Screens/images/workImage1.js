@@ -3,7 +3,7 @@ import React from 'react'
 const WorkImage1 = () => {
   return (<>
     <svg
-        className='md:h-[500px]'
+        className='h-[500px]'
           width="866"
           height="713"
           viewBox="0 0 866 713"

@@ -54,7 +54,7 @@ const Home = () => {
   const resume=()=>{
     // window.location.href=getDoc
     // window.location.replace(getDoc)
-    console.log("here");
+    // console.log("here");
     window.open(getDoc);
   }
 

@@ -18,8 +18,7 @@ const Navbar = () => {
     setOpen(false)
   }
 
-  useEffect(() => {
-    
+  useEffect(() => {    
     listAll(imageListRef).then((res)=>{
       res.items.forEach((item)=>{
         getDownloadURL(item).then((url)=>{
@@ -56,9 +55,9 @@ const Navbar = () => {
             </div>
             <div
               className="w-14 hover:font-semibold hover:cursor-pointer"
-              onClick={() => goTo("work")}
+              onClick={() => goTo("skill")}
             >
-              work
+              Skill
             </div>
             <div
               className="w-14 hover:font-semibold hover:cursor-pointer"
@@ -136,9 +135,9 @@ const Navbar = () => {
 
                 <div
                   className="hover:font-semibold hover:cursor-pointer border-b-2"
-                  onClick={() => goTo("work")}
+                  onClick={() => goTo("skill")}
                 >
-                  work
+                  Skill
                 </div>
                 <div
                   className="hover:font-semibold hover:cursor-pointer border-b-2"
