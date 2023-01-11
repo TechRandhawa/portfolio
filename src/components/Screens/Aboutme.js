@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import AboutImage1 from './images/aboutImage1'
-import { db } from '../Firebase/firebase-config'
+import { db } from '../Firebase/firebase_config'
 import {
   collection,
   getDocs,
@@ -25,7 +25,7 @@ const Aboutme = () => {
   useEffect(() => {
     if (data) {
       let newData = _.head(data)
-      console.log(newData.header)
+      // console.log(newData.header)
       setHValues(newData.header)
       setShValues(newData.subheader)
     } else {

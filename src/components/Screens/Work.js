@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import WorkImage1 from './images/workImage1'
-import { db } from '../Firebase/firebase-config'
-import { storage } from '../Firebase/firebase-config'
+import { db } from '../Firebase/firebase_config'
+import { storage } from '../Firebase/firebase_config'
 import {
   collection,
   getDocs,
@@ -15,7 +15,7 @@ import _ from 'lodash'
 import { useNavigate } from 'react-router-dom'
 
 const Work = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   const [getImage, setGetImage] = useState()
   const [data, setData] = useState()
   // const imageListRef = ref(storage, 'my-cv-pics/')
@@ -37,9 +37,7 @@ const Work = () => {
       // setHValues(data[0].header)
       // setShValues(data[0].subheader)
       let newData = _.head(data)
-      console.log();
       setDataValues(newData.data)
-      console.log('gotnew', data, newData.data)
     } else {
       setDataValues([])
     }
@@ -69,7 +67,7 @@ const Work = () => {
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                           <div
-                            className={`bg-blue-600 h-2.5 rounded-full `}
+                            className={`bg-gradient-to-r from-blue-600 to-red-400 h-2.5 rounded-full `}
                             style={{ width: dataValues[key] + '%' }}
                           ></div>
                         </div>
@@ -81,7 +79,12 @@ const Work = () => {
           </div>
           <div className="flex flex-col items-center z-20 text-white font-medium">
             <span>Know more about projects kindly visit</span>
-            <span onClick={()=> window.open("https://github.com/TechRandhawa")} className='capitalize hover:cursor-pointer underline underline-offset-4'>github profile</span>
+            <span
+              onClick={() => window.open('https://github.com/TechRandhawa')}
+              className="capitalize hover:cursor-pointer underline underline-offset-4"
+            >
+              github profile
+            </span>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ContactImage from './images/contactImage1'
 import Contactimage2 from './images/contactimage2'
-import { db } from '../Firebase/firebase-config'
+import { db } from '../Firebase/firebase_config'
 import {
   collection,
   getDocs,
@@ -26,7 +26,7 @@ const Contact = () => {
   useEffect(() => {
     if (data) {
       let newData = _.head(data)
-      console.log(newData.header)
+      // console.log(newData.header)
       setHValues(newData.header)
       setShValues(newData.subheader)
     } else {
@@ -40,7 +40,7 @@ const Contact = () => {
   }, [])
   return (
     <>
-      <div className="absolute md:-top-[45%] z-20 -top-[57%] -left-6 md:left-[8.8%]">
+      <div className="absolute md:-top-[45%] z-20 sphone:top-[-333px] iphone:top-[-288px] top-[-315px] -left-6 md:left-[8.8%]">
         <ContactImage />
       </div>
       <div className="absolute md:bottom-10 bottom-0 right-1 md:right-40">

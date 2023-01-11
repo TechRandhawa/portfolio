@@ -1,7 +1,7 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate, Outlet, useLocation } from 'react-router-dom'
 import './Navbar.css'
-import { storage } from '../../Firebase/firebase-config'
+import { storage } from '../../Firebase/firebase_config'
 import { ref, listAll, getDownloadURL } from 'firebase/storage'
 
 const Navbar = () => {
@@ -14,21 +14,20 @@ const Navbar = () => {
 
   const goTo = (e) => {
     navigate(e)
-    console.log("here",e);
+    // console.log("here",e);
     setOpen(false)
   }
 
-  useEffect(() => {    
-    listAll(imageListRef).then((res)=>{
-      res.items.forEach((item)=>{
-        getDownloadURL(item).then((url)=>{
+  useEffect(() => {
+    listAll(imageListRef).then((res) => {
+      res.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
           setGetImage(url)
           // console.log(url);
         })
       })
     })
   }, [])
-  
 
   return (
     <>
@@ -36,32 +35,36 @@ const Navbar = () => {
         <div className="overflow-hidden">
           <div className="md:flex hidden border-b-2 mb-5 rounded-b-2xl border-white pb-4 pt-10 justify-center items-center space-x-16 text-white uppercase pr-12">
             <div
-              onClick={() => goTo("/")}
+              onClick={() => goTo('/')}
               className="w-14 hover:font-semibold hover:cursor-pointer"
             >
               home
             </div>
             <div
               className="w-24 hover:font-semibold hover:cursor-pointer"
-              onClick={() => goTo("aboutme")}
+              onClick={() => goTo('aboutme')}
             >
               about me
             </div>
             <div
               className="hover:stroke-[#0F103F] hover:cursor-pointer"
-              onClick={() => goTo("/")}
+              onClick={() => goTo('/')}
             >
-              <img src={getImage} alt="Logo" className="rounded-full w-12 h-12" />
+              <img
+                src={getImage}
+                alt="Logo"
+                className="rounded-full w-12 h-12"
+              />
             </div>
             <div
               className="w-14 hover:font-semibold hover:cursor-pointer"
-              onClick={() => goTo("skill")}
+              onClick={() => goTo('skill')}
             >
-              Skill
+              Skills
             </div>
             <div
               className="w-14 hover:font-semibold hover:cursor-pointer"
-              onClick={() => goTo("contact")}
+              onClick={() => goTo('contact')}
             >
               contact
             </div>
@@ -70,9 +73,13 @@ const Navbar = () => {
           <div className="flex md:hidden text-white border-b-2 rounded-b-2xl mb-3 border-white uppercase justify-between">
             <div
               className="flex hover:stroke-[#0F103F] hover:cursor-pointer p-3"
-              onClick={() => goTo("/")}
+              onClick={() => goTo('/')}
             >
-              <img src={getImage} alt="Logo" className="rounded-full w-14 h-14" />
+              <img
+                src={getImage}
+                alt="Logo"
+                className="rounded-full w-14 h-14"
+              />
             </div>
             <div className="flex min-h-full z-10 pr-3 items-center hover:cursor-pointer">
               <div onClick={() => setOpen(true)}>
@@ -97,12 +104,15 @@ const Navbar = () => {
               <div
                 className={` relative w-44 z-30 h-screen ${
                   open
-                    ? 'animate-[open_2s_linear_1] right-0'
+                    ? 'animate-[open_600ms_linear_1] right-0'
                     : 'delay-700 translate-x-0 duration-1000 ease-in-out -right-48'
                 } bg-[#0F103F] border-l-2 space-y-10 p-10`}
               >
                 <div
-                  className={` absolute right-2 top-2 ${!open && "animate-[cross_3s_linear_infinite_alternate-reverse]"} active:animate-[cross_3s_linear_infinite_alternate-reverse] hover:cursor-pointer `}
+                  className={` absolute right-2 top-2 ${
+                    !open &&
+                    'animate-[cross_3s_linear_infinite_alternate-reverse]'
+                  } active:animate-[cross_3s_linear_infinite_alternate-reverse] hover:cursor-pointer `}
                   onClick={() => setOpen(false)}
                 >
                   <svg
@@ -122,26 +132,26 @@ const Navbar = () => {
                 </div>
                 <div
                   className="hover:font-semibold hover:cursor-pointer border-b-2"
-                  onClick={() => goTo("/")}
+                  onClick={() => goTo('/')}
                 >
                   home
                 </div>
                 <div
                   className="hover:font-semibold hover:cursor-pointer border-b-2"
-                  onClick={() => goTo("aboutme")}
+                  onClick={() => goTo('aboutme')}
                 >
                   about me
                 </div>
 
                 <div
                   className="hover:font-semibold hover:cursor-pointer border-b-2"
-                  onClick={() => goTo("skill")}
+                  onClick={() => goTo('skill')}
                 >
-                  Skill
+                  Skills
                 </div>
                 <div
                   className="hover:font-semibold hover:cursor-pointer border-b-2"
-                  onClick={() => goTo("contact")}
+                  onClick={() => goTo('contact')}
                 >
                   contact
                 </div>
