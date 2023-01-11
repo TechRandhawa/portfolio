@@ -37,6 +37,7 @@ const Work = () => {
       // setHValues(data[0].header)
       // setShValues(data[0].subheader)
       let newData = _.head(data)
+      console.log();
       setDataValues(newData.data)
       console.log('gotnew', data, newData.data)
     } else {
@@ -68,7 +69,7 @@ const Work = () => {
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                           <div
-                            className={`bg-blue-600 h-2.5  rounded-full `}
+                            className={`bg-blue-600 h-2.5 rounded-full `}
                             style={{ width: dataValues[key] + '%' }}
                           ></div>
                         </div>

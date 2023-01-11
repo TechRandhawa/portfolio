@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex z-30 flex-col min-h-screen md:h-screen bg-[#0F103F]">
+      <div className="flex z-30 flex-col h-screen md:h-screen bg-[#0F103F]">
         <div className="overflow-hidden">
           <div className="md:flex hidden border-b-2 mb-5 rounded-b-2xl border-white pb-4 pt-10 justify-center items-center space-x-16 text-white uppercase pr-12">
             <div
@@ -67,7 +67,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="flex md:hidden text-white border-b-2 rounded-b-2xl uppercase justify-between">
+          <div className="flex md:hidden text-white border-b-2 rounded-b-2xl mb-3 border-white uppercase justify-between">
             <div
               className="flex hover:stroke-[#0F103F] hover:cursor-pointer p-3"
               onClick={() => goTo("/")}
