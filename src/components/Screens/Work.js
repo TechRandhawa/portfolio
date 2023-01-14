@@ -85,6 +85,12 @@ const Work = () => {
             >
               github profile
             </span>
+            <span
+              className="capitalize hover:cursor-pointer underline underline-offset-4"
+              onClick={() => navigate('/certs')}
+            >
+              Certificates
+            </span>
           </div>
         </div>
       </div>
