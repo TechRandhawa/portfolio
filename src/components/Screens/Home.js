@@ -75,12 +75,12 @@ const Home = () => {
                 <spam className="text-xl pt-2">{shvalues}</spam>
               </div>
               <div className="flex w-full md:pt-9 h-[3.2rem] md:h-20 pt-3 space-x-3 md:space-x-20 md:pl-11 text-white font-semibold">
-                <button
+                {/* <button
                   className="bg-gradient-to-br from-white to-black px-8 py-2 rounded-3xl"
                   onClick={() => navigate('contact')}
                 >
                   Hire me
-                </button>
+                </button> */}
                 <button
                   className="bg-gradient-to-br from-[#C961DE] to-[#2954A3] px-8 py-2 rounded-3xl"
                   onClick={() => resume()}
